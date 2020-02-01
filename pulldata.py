@@ -30,6 +30,7 @@ for items in responseJson[keySubjects]:
     else:
         # add the slug and create a new class list
         classDict[items[keySlug]] = []
+        print(items[keySlug])
 
 # Get the class list for each slug
 print("Pulling class data for each slug...")
@@ -41,6 +42,7 @@ for slugs in list(classDict.keys()):
         responseSlugJson = responseSlug.json()
         for slugClass in responseSlugJson[keyCourses]:
             classDict[slugs].append((slugClass[keyCourseID], slugClass[keyTitle]))
+            print(slugClass[keyCourseID] + ' ' + slugClass[keyTitle])
     else:
         print('Failed to get proper response for class slug: {}'.format(slugs))
 # response[Courses] CourseID, Title
